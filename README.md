@@ -1,3 +1,13 @@
+Note : Run Command 
+
+npm cache clean --force
+
+npm install --legacy-peer-deps
+
+
+
+
+
 # Contact Management Application
 
 ## Overview
