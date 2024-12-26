@@ -1,0 +1,38 @@
+<div class="modal">
+    <div class="modal-content">
+      <span class="close-button" (click)="onCancel()">&times;</span>
+      <h2>{{ contact?.id ? 'Edit Contact' : 'Add New Contact' }}</h2>
+      <div class="modal-body">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" formControlName="firstName" class="form-control" />
+            <label class="text-danger" *ngIf="contactForm.controls['firstName'].invalid && isSubmitted">
+              firstName is required.
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" formControlName="lastName" class="form-control" />
+            <label class="text-danger" *ngIf="contactForm.controls['lastName'].invalid && isSubmitted">
+              lastName is required.
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" class="form-control" />
+            <label class="text-danger" *ngIf="!contactForm.controls['email'].touched && isSubmitted">
+              email is required.
+            </label>
+            <label class="text-danger" *ngIf="contactForm.controls['email'].errors && contactForm.controls['email'].touched">
+              Please input a valid email.
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
